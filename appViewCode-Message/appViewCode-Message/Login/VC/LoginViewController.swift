@@ -9,11 +9,14 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    var loginScreen: LoginScreen?
+    override func loadView() {
+        self.loginScreen = LoginScreen()
+        self.view = loginScreen
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
     }
-
-
 }
 
