@@ -8,8 +8,11 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    // MARK: - Properties
     var loginScreen: LoginScreen?
+    
+    // MARK: - Override
     override func loadView() {
         self.loginScreen = LoginScreen()
         self.view = loginScreen

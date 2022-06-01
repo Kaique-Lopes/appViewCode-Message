@@ -8,7 +8,8 @@
 import UIKit
 
 class LoginScreen: UIView {
-
+    
+// MARK: - Components
     lazy var loginLabel: UILabel = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -18,6 +19,7 @@ class LoginScreen: UIView {
         return label
     }()
     
+    // MARK: - Overrides
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(loginLabel)
@@ -28,6 +30,7 @@ class LoginScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Constraints
     func setupConstraints() {
         NSLayoutConstraint.activate([
             self.loginLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
