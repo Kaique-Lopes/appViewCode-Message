@@ -10,14 +10,7 @@ import UIKit
 class LoginScreen: UIView {
     
 // MARK: - Components
-    lazy var loginLabel: UILabel = {
-        var label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Login"
-        label.textColor = .red
-        label.font = UIFont.boldSystemFont(ofSize: 40)
-        return label
-    }()
+    lazy var loginLabel = LabelDefault(text: "Login")
     
     // MARK: - Overrides
     override init(frame: CGRect) {
