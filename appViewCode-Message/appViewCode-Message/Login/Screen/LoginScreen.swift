@@ -11,11 +11,13 @@ class LoginScreen: UIView {
     
 // MARK: - Components
     lazy var loginLabel = LabelDefault(text: "Login")
+    lazy var logoImage = UIImageDefault(imageName: "logo")
     
     // MARK: - Overrides
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(loginLabel)
+        self.addSubview(logoImage)
         self.setupConstraints()
     }
     
@@ -27,7 +29,9 @@ class LoginScreen: UIView {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             self.loginLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.loginLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            self.loginLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            
+            self.logoImage.topAnchor.constraint(equalTo: self.loginLabel.bottomAnchor)
         ])
     }
     
