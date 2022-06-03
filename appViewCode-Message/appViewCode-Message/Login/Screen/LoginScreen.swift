@@ -12,12 +12,13 @@ class LoginScreen: UIView {
 // MARK: - Components
     lazy var loginLabel = LabelDefault(text: "Login")
     lazy var logoImage = UIImageDefault(imageName: "logo")
+    lazy var loginTextField = UITextFieldDefault(text: "Login")
+    lazy var emailTextField = UITextFieldDefault(text: "Email")
     
     // MARK: - Overrides
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(loginLabel)
-        self.addSubview(logoImage)
+        self.configViews()
         self.setupConstraints()
     }
     
@@ -28,11 +29,22 @@ class LoginScreen: UIView {
     // MARK: - Constraints
     func setupConstraints() {
         NSLayoutConstraint.activate([
+            self.loginLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
             self.loginLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.loginLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
-            self.logoImage.topAnchor.constraint(equalTo: self.loginLabel.bottomAnchor)
+            self.logoImage.topAnchor.constraint(equalTo: self.loginLabel.bottomAnchor, constant: 20),
+            self.logoImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.logoImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.logoImage.heightAnchor.constraint(equalToConstant: 200)
         ])
+    }
+    
+    // MARK: - ConfigViews
+    func configViews() {
+        self.addSubview(loginLabel)
+        self.addSubview(logoImage)
+        self.addSubview(loginTextField)
+        self.addSubview(emailTextField)
     }
     
 }
