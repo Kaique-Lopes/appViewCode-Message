@@ -9,19 +9,23 @@ import Foundation
 import UIKit
 
 class UITextFieldDefault: UITextField {
-    init(text: String) {
+    init(text: String, keyboardType: UIKeyboardType = .default, isSecure: Bool = false) {
         super.init(frame: .zero)
-        
         initDefault(text: text)
+        self.keyboardType = keyboardType
+        self.isSecureTextEntry = isSecure
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initDefault(text: String) {
+   private func initDefault(text: String) {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .cyan
+        self.backgroundColor = .white
         self.placeholder = text
+        self.autocorrectionType = .no
+        self.borderStyle = .roundedRect
+        self.textColor = .darkGray
     }
 }
