@@ -10,12 +10,15 @@ import UIKit
 class LoginScreen: UIView {
     
 // MARK: - Components
-    lazy var loginLabel = LabelDefault(text: "Login")
+    lazy var loginLabel = UILabelDefault(text: "Login")
     lazy var logoImage = UIImageDefault(imageName: "logo")
     lazy var loginTextField = UITextFieldDefault(text: "Email", keyboardType: .emailAddress)
     lazy var passwordTextField = UITextFieldDefault(text: "Senha", keyboardType: .default, isSecure: true)
+    lazy var loginButton = UIButtonDefault(text: "Login", bgColor: .white)
+    lazy var registerButton = UIButtonDefault(text: "Não tem Conta? Cadastre-se", bgColor: .clear, colorTitle: .cyan)
+
     
-    // MARK: - Overrides
+    // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configViews()
@@ -40,11 +43,22 @@ class LoginScreen: UIView {
             self.loginTextField.topAnchor.constraint(equalTo: self.logoImage.bottomAnchor, constant: 20),
             self.loginTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.loginTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            
-            self.passwordTextField.topAnchor.constraint(equalTo: self.loginTextField.bottomAnchor, constant: 20),
-            self.passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+            self.loginTextField.heightAnchor.constraint(equalToConstant: 45),
 
+            self.passwordTextField.topAnchor.constraint(equalTo: self.loginTextField.bottomAnchor, constant: 20),
+            self.passwordTextField.leadingAnchor.constraint(equalTo: self.loginTextField.leadingAnchor),
+            self.passwordTextField.trailingAnchor.constraint(equalTo: self.loginTextField.trailingAnchor),
+            self.passwordTextField.heightAnchor.constraint(equalTo: self.loginTextField.heightAnchor),
+            
+            self.loginButton.topAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor, constant: 20),
+            self.loginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50),
+            self.loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50),
+            self.loginButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            self.registerButton.topAnchor.constraint(equalTo: self.loginButton.bottomAnchor, constant: 20),
+            self.registerButton.leadingAnchor.constraint(equalTo: self.loginButton.leadingAnchor),
+            self.registerButton.trailingAnchor.constraint(equalTo: self.loginButton.trailingAnchor),
+            self.registerButton.heightAnchor.constraint(equalTo: self.loginButton.heightAnchor)
         ])
     }
     
@@ -54,6 +68,8 @@ class LoginScreen: UIView {
         self.addSubview(logoImage)
         self.addSubview(loginTextField)
         self.addSubview(passwordTextField)
+        self.addSubview(loginButton)
+        self.addSubview(registerButton)
     }
     
 }

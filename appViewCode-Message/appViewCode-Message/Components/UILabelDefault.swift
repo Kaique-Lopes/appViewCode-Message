@@ -1,5 +1,5 @@
 //
-//  LabelDefault.swift
+//  UILabelDefault.swift
 //  appViewCode-Message
 //
 //  Created by Kaique Lopes de Oliveira on 31/05/22.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class LabelDefault: UILabel {
+class UILabelDefault: UILabel {
      init(text: String) {
         super.init(frame: .zero)
         
