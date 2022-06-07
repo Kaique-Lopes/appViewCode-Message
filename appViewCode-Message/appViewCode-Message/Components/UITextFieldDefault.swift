@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 
 class UITextFieldDefault: UITextField {
-    init(text: String, keyboardType: UIKeyboardType = .default, isSecure: Bool = false) {
+    init(text: String, keyboardType: UIKeyboardType = .default, isSecure: Bool = false, delegate: UITextFieldDelegate) {
         super.init(frame: .zero)
         initDefault(text: text)
         self.keyboardType = keyboardType
         self.isSecureTextEntry = isSecure
+        self.delegate = delegate
     }
     
     required init?(coder: NSCoder) {

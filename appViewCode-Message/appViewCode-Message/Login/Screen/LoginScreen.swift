@@ -12,12 +12,11 @@ class LoginScreen: UIView {
 // MARK: - Components
     lazy var loginLabel = UILabelDefault(text: "Login")
     lazy var logoImage = UIImageDefault(imageName: "logo")
-    lazy var loginTextField = UITextFieldDefault(text: "Email", keyboardType: .emailAddress)
-    lazy var passwordTextField = UITextFieldDefault(text: "Senha", keyboardType: .default, isSecure: true)
+    lazy var loginTextField = UITextFieldDefault(text: "Email", keyboardType: .emailAddress, delegate: self)
+    lazy var passwordTextField = UITextFieldDefault(text: "Senha", keyboardType: .default, isSecure: true, delegate: self)
     lazy var loginButton = UIButtonDefault(text: "Login", bgColor: .white)
     lazy var registerButton = UIButtonDefault(text: "Não tem Conta? Cadastre-se", bgColor: .clear, colorTitle: .cyan)
 
-    
     // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,3 +72,6 @@ class LoginScreen: UIView {
     }
     
 }
+
+// MARK: - UITextFieldDelegate
+extension LoginScreen: UITextFieldDelegate {}
