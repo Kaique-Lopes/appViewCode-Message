@@ -27,6 +27,14 @@ class LoginViewController: UIViewController {
 
 // MARK: -  UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("abriu teclado")
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("fechou teclado")
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
