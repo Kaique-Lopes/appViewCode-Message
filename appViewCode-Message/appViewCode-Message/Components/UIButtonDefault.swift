@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 
 class UIButtonDefault: UIButton {
-    init(text: String, bgColor: UIColor = .white, colorTitle: UIColor = .black, forColor: UIControl.State = .normal) {
+    init(text: String, bgColor: UIColor = .white, colorTitle: UIColor = .black, forColor: UIControl.State = .normal, objcTarget: Selector, forTarget: UIControl.Event ) {
         super.init(frame: .zero)
         initDefault(text: text)
         self.backgroundColor = bgColor
         self.setTitleColor(colorTitle, for: forColor)
+        self.addTarget(self, action: objcTarget, for: forTarget)
     }
     
     required init?(coder: NSCoder) {

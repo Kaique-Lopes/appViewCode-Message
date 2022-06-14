@@ -14,8 +14,8 @@ class LoginScreen: UIView {
     lazy var logoImage = UIImageDefault(imageName: "logo")
     lazy var loginTextField = UITextFieldDefault(text: "Email", keyboardType: .emailAddress, delegate: self)
     lazy var passwordTextField = UITextFieldDefault(text: "Senha", keyboardType: .default, isSecure: true, delegate: self)
-    lazy var loginButton = UIButtonDefault(text: "Login", bgColor: .white)
-    lazy var registerButton = UIButtonDefault(text: "Não tem Conta? Cadastre-se", bgColor: .clear, colorTitle: .cyan)
+    lazy var loginButton = UIButtonDefault(text: "Login", bgColor: .white, objcTarget: #selector(self.tappedLoginButton), forTarget: .touchDown)
+    lazy var registerButton = UIButtonDefault(text: "Não tem Conta? Cadastre-se", bgColor: .clear, colorTitle: .cyan, objcTarget: #selector(self.tappedLoginButton), forTarget: .touchDown)
 
     // MARK: - Life Cycle
     override init(frame: CGRect) {
@@ -27,7 +27,7 @@ class LoginScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    @objc func tappedLoginButton() {}
     // MARK: - Constraints
     func setupConstraints() {
         NSLayoutConstraint.activate([
