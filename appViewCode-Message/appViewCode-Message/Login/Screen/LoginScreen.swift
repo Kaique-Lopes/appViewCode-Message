@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - LoginScreenProtocol
 protocol LoginScreenProtocol: AnyObject {
     func tappedLoginButton()
     func tappedRegisterButton()
@@ -14,6 +15,7 @@ protocol LoginScreenProtocol: AnyObject {
 
 class LoginScreen: UIView {
     
+    // MARK: - loginScreenProtocol and loginScreenDelegate
     private weak var loginScreenProtocol: LoginScreenProtocol?
     
     func loginScreenDelegate(delegate: LoginScreenProtocol?){
