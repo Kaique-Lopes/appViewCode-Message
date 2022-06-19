@@ -7,7 +7,18 @@
 
 import UIKit
 
+protocol LoginScreenProtocol: AnyObject {
+    func tappedLoginButton()
+    func tappedRegisterButton()
+}
+
 class LoginScreen: UIView {
+    
+    private weak var loginScreenProtocol: LoginScreenProtocol?
+    
+    func loginScreenDelegate(delegate: LoginScreenProtocol?){
+        self.loginScreenProtocol = delegate
+    }
     
 // MARK: - Components
     lazy var loginLabel = UILabelDefault(text: "Login")
@@ -76,9 +87,10 @@ class LoginScreen: UIView {
     }
     
     private func setRegisterButton() {
+        self.addSubview(registerButton)
+        
         self.registerButton.addTarget(self, action: #selector(self.tappedRegisterButton), for: .touchUpInside)
         
-        self.addSubview(registerButton)
         NSLayoutConstraint.activate([
             self.registerButton.topAnchor.constraint(equalTo: self.loginButton.bottomAnchor, constant: 20),
             self.registerButton.leadingAnchor.constraint(equalTo: self.loginButton.leadingAnchor),
@@ -88,11 +100,11 @@ class LoginScreen: UIView {
     }
     
     @objc private func tappedLoginButton() {
-        print("press buton login")
+        self.loginScreenProtocol?.tappedLoginButton()
     }
     
     @objc private func tappedRegisterButton() {
-        print("press buton register")
+        self.loginScreenProtocol?.tappedRegisterButton()
     }
     
 }

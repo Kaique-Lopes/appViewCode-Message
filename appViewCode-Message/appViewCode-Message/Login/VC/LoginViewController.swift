@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
+        loginScreen?.loginScreenDelegate(delegate: self)
         loginScreen?.loginTextField.delegate = self
         loginScreen?.passwordTextField.delegate = self
     }
@@ -37,5 +38,15 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+    }
+}
+
+extension LoginViewController: LoginScreenProtocol {
+    func tappedLoginButton() {
+        print("aeeer login")
+    }
+    
+    func tappedRegisterButton() {
+        print("aeeer register")
     }
 }
