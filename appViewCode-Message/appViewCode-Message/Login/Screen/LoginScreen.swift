@@ -23,14 +23,13 @@ class LoginScreen: UIView {
         self.configViews()
         self.setupConstraints()
         self.setLoginButton()
+        self.setRegisterButton()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    @objc func tappedLoginButton() {
-        print("press buton login")
-    }
+
     // MARK: - Constraints
     func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -50,14 +49,7 @@ class LoginScreen: UIView {
             self.passwordTextField.topAnchor.constraint(equalTo: self.loginTextField.bottomAnchor, constant: 20),
             self.passwordTextField.leadingAnchor.constraint(equalTo: self.loginTextField.leadingAnchor),
             self.passwordTextField.trailingAnchor.constraint(equalTo: self.loginTextField.trailingAnchor),
-            self.passwordTextField.heightAnchor.constraint(equalTo: self.loginTextField.heightAnchor),
-            
-
-            
-            self.registerButton.topAnchor.constraint(equalTo: self.loginButton.bottomAnchor, constant: 20),
-            self.registerButton.leadingAnchor.constraint(equalTo: self.loginButton.leadingAnchor),
-            self.registerButton.trailingAnchor.constraint(equalTo: self.loginButton.trailingAnchor),
-            self.registerButton.heightAnchor.constraint(equalTo: self.loginButton.heightAnchor)
+            self.passwordTextField.heightAnchor.constraint(equalTo: self.loginTextField.heightAnchor)
         ])
     }
     
@@ -67,7 +59,6 @@ class LoginScreen: UIView {
         self.addSubview(logoImage)
         self.addSubview(loginTextField)
         self.addSubview(passwordTextField)
-        self.addSubview(registerButton)
     }
     
     // MARK: - Private Methods
@@ -82,6 +73,26 @@ class LoginScreen: UIView {
             self.loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50),
             self.loginButton.heightAnchor.constraint(equalToConstant: 40),
         ])
+    }
+    
+    private func setRegisterButton() {
+        self.registerButton.addTarget(self, action: #selector(self.tappedRegisterButton), for: .touchUpInside)
+        
+        self.addSubview(registerButton)
+        NSLayoutConstraint.activate([
+            self.registerButton.topAnchor.constraint(equalTo: self.loginButton.bottomAnchor, constant: 20),
+            self.registerButton.leadingAnchor.constraint(equalTo: self.loginButton.leadingAnchor),
+            self.registerButton.trailingAnchor.constraint(equalTo: self.loginButton.trailingAnchor),
+            self.registerButton.heightAnchor.constraint(equalTo: self.loginButton.heightAnchor)
+        ])
+    }
+    
+    @objc private func tappedLoginButton() {
+        print("press buton login")
+    }
+    
+    @objc private func tappedRegisterButton() {
+        print("press buton register")
     }
     
 }
