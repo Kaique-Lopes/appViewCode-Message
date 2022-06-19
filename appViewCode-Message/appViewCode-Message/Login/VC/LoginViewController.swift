@@ -41,6 +41,7 @@ extension LoginViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: - LoginScreenProtocol
 extension LoginViewController: LoginScreenProtocol {
     func tappedLoginButton() {
         print("aeeer login")
