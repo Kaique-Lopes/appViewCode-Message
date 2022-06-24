@@ -28,7 +28,7 @@ class LoginScreen: UIView {
     lazy var loginTextField = UITextFieldDefault(text: "Email", keyboardType: .emailAddress, delegate: self)
     lazy var passwordTextField = UITextFieldDefault(text: "Senha", keyboardType: .default, isSecure: true, delegate: self)
     lazy var loginButton = UIButtonDefault(text: "Login", bgColor: .white)
-    lazy var registerButton = UIButtonDefault(text: "Não tem Conta? Cadastre-se", bgColor: .clear, colorTitle: .cyan)
+    lazy var registerButton = UIButtonDefault(text: "Não tem Conta? Cadastre-se", bgColor: .darkGray, colorTitle: .white)
 
     // MARK: - Life Cycle
     override init(frame: CGRect) {
