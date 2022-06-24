@@ -96,8 +96,7 @@ class LoginScreen: UIView {
         NSLayoutConstraint.activate([
             self.registerButton.topAnchor.constraint(equalTo: self.loginButton.bottomAnchor, constant: 20),
             self.registerButton.leadingAnchor.constraint(equalTo: self.loginButton.leadingAnchor),
-            self.registerButton.trailingAnchor.constraint(equalTo: self.loginButton.trailingAnchor),
-            self.registerButton.heightAnchor.constraint(equalTo: self.loginButton.heightAnchor)
+            self.registerButton.trailingAnchor.constraint(equalTo: self.loginButton.trailingAnchor)
         ])
     }
     

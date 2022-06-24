@@ -48,6 +48,6 @@ extension LoginViewController: LoginScreenProtocol {
     }
     
     func tappedRegisterButton() {
-        print("aeeer register")
+        self.navigationController?.pushViewController(RegisterVC(), animated: true)
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C07718E2864B21000BDB1D4 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07718D2864B21000BDB1D4 /* RegisterScreen.swift */; };
+		7C0771902864B22500BDB1D4 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07718F2864B22500BDB1D4 /* RegisterVC.swift */; };
 		7C0DE879284EE88E00C37198 /* UIButtonDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DE878284EE88E00C37198 /* UIButtonDefault.swift */; };
 		7CAA78672846612D003380CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA78662846612D003380CB /* AppDelegate.swift */; };
 		7CAA78692846612D003380CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA78682846612D003380CB /* SceneDelegate.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C07718D2864B21000BDB1D4 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		7C07718F2864B22500BDB1D4 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		7C0DE878284EE88E00C37198 /* UIButtonDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonDefault.swift; sourceTree = "<group>"; };
 		7CAA78632846612D003380CB /* appViewCode-Message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "appViewCode-Message.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CAA78662846612D003380CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C07718A2864B1DF00BDB1D4 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				7C07718C2864B1EF00BDB1D4 /* Screen */,
+				7C07718B2864B1E800BDB1D4 /* VC */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		7C07718B2864B1E800BDB1D4 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				7C07718F2864B22500BDB1D4 /* RegisterVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		7C07718C2864B1EF00BDB1D4 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				7C07718D2864B21000BDB1D4 /* RegisterScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
 		7CAA785A2846612D003380CB = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +93,7 @@
 		7CAA78652846612D003380CB /* appViewCode-Message */ = {
 			isa = PBXGroup;
 			children = (
+				7C07718A2864B1DF00BDB1D4 /* Register */,
 				7CCF3E072847042E009D33C3 /* Components */,
 				7CAA787A2846B8C7003380CB /* Login */,
 				7CAA78662846612D003380CB /* AppDelegate.swift */,
@@ -184,10 +214,12 @@
 				7CAA786B2846612D003380CB /* LoginViewController.swift in Sources */,
 				7CAA787E2846B8FB003380CB /* LoginScreen.swift in Sources */,
 				7CAA78672846612D003380CB /* AppDelegate.swift in Sources */,
+				7C07718E2864B21000BDB1D4 /* RegisterScreen.swift in Sources */,
 				7CAA78692846612D003380CB /* SceneDelegate.swift in Sources */,
 				7CD4EEBC2849A94400F2390C /* UITextFieldDefault.swift in Sources */,
 				7CCF3E0928470453009D33C3 /* UILabelDefault.swift in Sources */,
 				7CCF3E0B2847B2D9009D33C3 /* UIImageDefault.swift in Sources */,
+				7C0771902864B22500BDB1D4 /* RegisterVC.swift in Sources */,
 				7C0DE879284EE88E00C37198 /* UIButtonDefault.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
