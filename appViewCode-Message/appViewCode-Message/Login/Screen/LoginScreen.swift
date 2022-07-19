@@ -23,13 +23,71 @@ class LoginScreen: UIView {
     }
     
 // MARK: - Components
-    lazy var loginLabel = UILabelDefault(text: "Login")
-    lazy var logoImage = UIImageDefault(imageName: "logo")
-    lazy var loginTextField = UITextFieldDefault(text: "Email", keyboardType: .emailAddress, delegate: self)
-    lazy var passwordTextField = UITextFieldDefault(text: "Senha", keyboardType: .default, isSecure: true, delegate: self)
-    lazy var loginButton = UIButtonDefault(text: "Login", bgColor: .white)
-    lazy var registerButton = UIButtonDefault(text: "Não tem Conta? Cadastre-se", bgColor: .darkGray, colorTitle: .white)
-
+    lazy var loginLabel: UILabel = {
+        var label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Logo"
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        return label
+    }()
+    
+    lazy var logoImage: UIImageView = {
+        var image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        image.image = UIImage(named: "logo")
+        return image
+    }()
+    
+    lazy var loginTextField: UITextField = {
+        var tf = UITextField()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.backgroundColor = .white
+        tf.placeholder = "Digite seu e-mail"
+        tf.autocorrectionType = .no
+        tf.borderStyle = .roundedRect
+        tf.textColor = .darkGray
+        tf.keyboardType = .emailAddress
+        return tf
+    }()
+    
+    lazy var passwordTextField: UITextField = {
+        var tf = UITextField()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.backgroundColor = .white
+        tf.placeholder = "Senha"
+        tf.autocorrectionType = .no
+        tf.borderStyle = .roundedRect
+        tf.textColor = .darkGray
+        tf.keyboardType = .default
+        return tf
+    }()
+    
+    lazy var loginButton: UIButton = {
+        var button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Cadastrar", for: .normal)
+        button.backgroundColor = .white
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        button.setTitleColor(.black, for: .normal)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 7.0
+        return button
+    }()
+    
+    lazy var registerButton: UIButton = {
+        var button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Não tem conta? Cadastre-se", for: .normal)
+        button.backgroundColor = .white
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        button.setTitleColor(.black, for: .normal)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 7.0
+        return button
+    }()
+    
     // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)

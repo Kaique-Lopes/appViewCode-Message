@@ -8,7 +8,7 @@
 import UIKit
 
 class RegisterScreen: UIView {
-
+// MARK: Componentes
     lazy var logoImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +55,7 @@ class RegisterScreen: UIView {
         return button
     }()
     
+    // MARK: Inicializador
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -65,7 +66,8 @@ class RegisterScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    // MARK: Função que agrupa todos os componentes.
     private func setupViews() {
         self.addSubview(logoImage)
         self.addSubview(emailTextField)
@@ -73,6 +75,7 @@ class RegisterScreen: UIView {
         self.addSubview(registerButton)
     }
     
+    // MARK: Função que realiza a configuração de constraints de todos os componentes na view.
     func setupConstraints() {
         NSLayoutConstraint.activate([
             self.logoImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
