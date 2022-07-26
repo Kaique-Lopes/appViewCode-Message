@@ -61,13 +61,15 @@ class LoginScreen: UIView {
         tf.borderStyle = .roundedRect
         tf.textColor = .darkGray
         tf.keyboardType = .default
+        tf.isSecureTextEntry = true
         return tf
     }()
     
     lazy var loginButton: UIButton = {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Cadastrar", for: .normal)
+        button.setTitle("Entrar", for: .normal)
+        button.addTarget(self, action: #selector(self.tappedLoginButton), for: .touchUpInside)
         button.backgroundColor = .white
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitleColor(.black, for: .normal)
@@ -80,6 +82,7 @@ class LoginScreen: UIView {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Não tem conta? Cadastre-se", for: .normal)
+        button.addTarget(self, action: #selector(self.tappedRegisterButton), for: .touchUpInside)
         button.backgroundColor = .white
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitleColor(.black, for: .normal)
@@ -93,8 +96,6 @@ class LoginScreen: UIView {
         super.init(frame: frame)
         self.configViews()
         self.setupConstraints()
-        self.setLoginButton()
-        self.setRegisterButton()
     }
     
     required init?(coder: NSCoder) {
@@ -112,15 +113,25 @@ class LoginScreen: UIView {
             self.logoImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.logoImage.heightAnchor.constraint(equalToConstant: 200),
             
+            // TODO: upgrade method Constants
             self.loginTextField.topAnchor.constraint(equalTo: self.logoImage.bottomAnchor, constant: 20),
-            self.loginTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.loginTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: ConstantsConstraints.scale20.rawValue),
             self.loginTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.loginTextField.heightAnchor.constraint(equalToConstant: 45),
+            self.loginTextField.heightAnchor.constraint(equalToConstant: ConstantsConstraints.scale35.rawValue),
 
             self.passwordTextField.topAnchor.constraint(equalTo: self.loginTextField.bottomAnchor, constant: 20),
             self.passwordTextField.leadingAnchor.constraint(equalTo: self.loginTextField.leadingAnchor),
             self.passwordTextField.trailingAnchor.constraint(equalTo: self.loginTextField.trailingAnchor),
-            self.passwordTextField.heightAnchor.constraint(equalTo: self.loginTextField.heightAnchor)
+            self.passwordTextField.heightAnchor.constraint(equalTo: self.loginTextField.heightAnchor),
+            
+            self.loginButton.topAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor, constant: 20),
+            self.loginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50),
+            self.loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50),
+            self.loginButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            self.registerButton.topAnchor.constraint(equalTo: self.loginButton.bottomAnchor, constant: 20),
+            self.registerButton.leadingAnchor.constraint(equalTo: self.loginButton.leadingAnchor),
+            self.registerButton.trailingAnchor.constraint(equalTo: self.loginButton.trailingAnchor)
         ])
     }
     
@@ -130,34 +141,15 @@ class LoginScreen: UIView {
         self.addSubview(logoImage)
         self.addSubview(loginTextField)
         self.addSubview(passwordTextField)
-    }
-    
-    // MARK: - Private Methods
-    private func setLoginButton() {
         self.addSubview(loginButton)
-        
-        self.loginButton.addTarget(self, action: #selector(self.tappedLoginButton), for: .touchUpInside)
-
-        NSLayoutConstraint.activate([
-            self.loginButton.topAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor, constant: 20),
-            self.loginButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50),
-            self.loginButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50),
-            self.loginButton.heightAnchor.constraint(equalToConstant: 40),
-        ])
-    }
-    
-    private func setRegisterButton() {
         self.addSubview(registerButton)
-        
-        self.registerButton.addTarget(self, action: #selector(self.tappedRegisterButton), for: .touchUpInside)
-        
-        NSLayoutConstraint.activate([
-            self.registerButton.topAnchor.constraint(equalTo: self.loginButton.bottomAnchor, constant: 20),
-            self.registerButton.leadingAnchor.constraint(equalTo: self.loginButton.leadingAnchor),
-            self.registerButton.trailingAnchor.constraint(equalTo: self.loginButton.trailingAnchor)
-        ])
     }
     
+    func configTextFieldsDelegate(delegate: UITextFieldDelegate) {
+        self.loginTextField.delegate = delegate
+        self.passwordTextField.delegate = delegate
+    }
+        
     @objc private func tappedLoginButton() {
         self.loginScreenProtocol?.tappedLoginButton()
     }

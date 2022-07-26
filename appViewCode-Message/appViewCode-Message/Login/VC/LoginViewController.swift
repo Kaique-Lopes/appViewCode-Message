@@ -21,8 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .gray
         loginScreen?.loginScreenDelegate(delegate: self)
-        loginScreen?.loginTextField.delegate = self
-        loginScreen?.passwordTextField.delegate = self
+        loginScreen?.configTextFieldsDelegate(delegate: self)
     }
 }
 

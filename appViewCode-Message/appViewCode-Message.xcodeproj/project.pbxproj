@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220AD120288A3D1400E344CA /* ConstantsConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AD11F288A3D1400E344CA /* ConstantsConstraints.swift */; };
+		22C7B909288656040096C4EF /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7B908288656040096C4EF /* Stack.swift */; };
 		7C07718E2864B21000BDB1D4 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07718D2864B21000BDB1D4 /* RegisterScreen.swift */; };
 		7C0771902864B22500BDB1D4 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07718F2864B22500BDB1D4 /* RegisterVC.swift */; };
 		7C0DE879284EE88E00C37198 /* UIButtonDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DE878284EE88E00C37198 /* UIButtonDefault.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		220AD11F288A3D1400E344CA /* ConstantsConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsConstraints.swift; sourceTree = "<group>"; };
+		22C7B908288656040096C4EF /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		7C07718D2864B21000BDB1D4 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		7C07718F2864B22500BDB1D4 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		7C0DE878284EE88E00C37198 /* UIButtonDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonDefault.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				7C07718D2864B21000BDB1D4 /* RegisterScreen.swift */,
+				22C7B908288656040096C4EF /* Stack.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				7CCF3E0A2847B2D9009D33C3 /* UIImageDefault.swift */,
 				7CD4EEBB2849A94400F2390C /* UITextFieldDefault.swift */,
 				7C0DE878284EE88E00C37198 /* UIButtonDefault.swift */,
+				220AD11F288A3D1400E344CA /* ConstantsConstraints.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -213,9 +219,11 @@
 			files = (
 				7CAA786B2846612D003380CB /* LoginViewController.swift in Sources */,
 				7CAA787E2846B8FB003380CB /* LoginScreen.swift in Sources */,
+				220AD120288A3D1400E344CA /* ConstantsConstraints.swift in Sources */,
 				7CAA78672846612D003380CB /* AppDelegate.swift in Sources */,
 				7C07718E2864B21000BDB1D4 /* RegisterScreen.swift in Sources */,
 				7CAA78692846612D003380CB /* SceneDelegate.swift in Sources */,
+				22C7B909288656040096C4EF /* Stack.swift in Sources */,
 				7CD4EEBC2849A94400F2390C /* UITextFieldDefault.swift in Sources */,
 				7CCF3E0928470453009D33C3 /* UILabelDefault.swift in Sources */,
 				7CCF3E0B2847B2D9009D33C3 /* UIImageDefault.swift in Sources */,
