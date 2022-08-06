@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
         self.loginScreen = LoginScreen()
         self.view = loginScreen
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
@@ -32,7 +33,7 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("fechou teclado")
+        self.loginScreen?.validateTextFields()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
