@@ -18,6 +18,7 @@ class RegisterScreen: UIView {
     func delegate(delegate: RegisterScreenProtocol?) {
         self.delegate = delegate
     }
+    
 // MARK: Componentes
     lazy var userImage: UIImageView = {
         let image = UIImageView()
@@ -73,12 +74,19 @@ class RegisterScreen: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-        setupConstraints()
+        setupAllConstraints()
         backgroundColor = .gray
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupAllConstraints() {
+        setupUserImageConstraint()
+        setupEmailTextFieldConstraint()
+        setupPasswordTextFieldConstraint()
+        setupRegisterButtonConstraint()
     }
 
     // MARK: Função que agrupa todos os componentes.
@@ -89,31 +97,39 @@ class RegisterScreen: UIView {
         self.addSubview(registerButton)
     }
     
-    // MARK: Função que realiza a configuração de constraints de todos os componentes na view.
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-            
-            self.userImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            self.userImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            self.userImage.widthAnchor.constraint(equalToConstant: 100),
-            self.userImage.heightAnchor.constraint(equalToConstant: 100),
-            
-            self.emailTextField.topAnchor.constraint(equalTo: self.userImage.bottomAnchor, constant: 20),
-            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.emailTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-            self.passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: 20),
-            self.passwordTextField.leadingAnchor.constraint(equalTo: self.emailTextField.leadingAnchor),
-            self.passwordTextField.trailingAnchor.constraint(equalTo: self.emailTextField.trailingAnchor),
-            self.passwordTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-            self.registerButton.topAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor, constant: 20),
-            self.registerButton.leadingAnchor.constraint(equalTo: self.passwordTextField.leadingAnchor),
-            self.registerButton.trailingAnchor.constraint(equalTo: self.passwordTextField.trailingAnchor),
-            self.registerButton.heightAnchor.constraint(equalToConstant: 50),
-
-        ])
+    func setupUserImageConstraint() {
+        self.userImage.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(20)
+            make.centerX.equalToSuperview()
+            make.height.width.equalTo(100)
+        }
+    }
+    
+    func setupEmailTextFieldConstraint() {
+        self.emailTextField.snp.makeConstraints { make in
+            make.top.equalTo(self.userImage.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(50)
+        }
+    }
+    
+    func setupPasswordTextFieldConstraint() {
+        self.passwordTextField.snp.makeConstraints { make in
+            make.top.equalTo(self.emailTextField.snp.bottom).offset(15)
+            make.leading.equalTo(self.emailTextField.snp.leading)
+            make.trailing.equalTo(self.emailTextField.snp.trailing)
+            make.height.equalTo(50)
+        }
+    }
+    
+    func setupRegisterButtonConstraint() {
+        self.registerButton.snp.makeConstraints { make in
+            make.top.equalTo(self.passwordTextField.snp.bottom).offset(15)
+            make.leading.equalTo(self.passwordTextField.snp.leading)
+            make.trailing.equalTo(self.passwordTextField.snp.trailing)
+            make.height.equalTo(45)
+        }
     }
     
     func configTextFieldDelegate(delegate: UITextFieldDelegate) {
