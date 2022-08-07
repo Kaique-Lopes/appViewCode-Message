@@ -165,4 +165,12 @@ class RegisterScreen: UIView {
         }
     }
     
+    func getPasswordTF() -> String {
+        return self.passwordTextField.text ?? ""
+    }
+    
+    func getEmailTF() -> String {
+        return self.emailTextField.text ?? ""
+    }
+    
 }

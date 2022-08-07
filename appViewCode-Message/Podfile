@@ -7,5 +7,7 @@ target 'appViewCode-Message' do
 
   # Pods for appViewCode-Message
     pod 'SnapKit', '~> 5.0.0'
-
+    pod 'FirebaseAnalytics'
+    pod 'FirebaseAuth'
+    pod 'FirebaseFirestore'
 end
