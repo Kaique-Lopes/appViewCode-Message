@@ -12,6 +12,7 @@ class RegisterVC: UIViewController {
 
     var registerScreen: RegisterScreen?
     var auth: Auth?
+    var alert: Alert?
     
     override func loadView() {
         self.registerScreen = RegisterScreen()
@@ -22,6 +23,7 @@ class RegisterVC: UIViewController {
         self.registerScreen?.configTextFieldDelegate(delegate: self)
         self.registerScreen?.delegate(delegate: self)
         self.auth = Auth.auth()
+        self.alert = Alert(controller: self)
     }
 }
 
@@ -40,14 +42,15 @@ extension RegisterVC: UITextFieldDelegate {
 extension RegisterVC: RegisterScreenProtocol {
     
     func actionRegisterButton() {
-        let emailTF: String = self.registerScreen?.emailTextField.text ?? ""
-        let passwordTF: String = self.registerScreen?.passwordTextField.text ?? ""
-        
-        self.auth?.createUser(withEmail: emailTF, password: passwordTF, completion: { result, error in
+        guard let register = self.registerScreen else {return}
+
+        self.auth?.createUser(withEmail: register.getEmailTF(), password: register.getPasswordTF(), completion: { result, error in
             if error != nil {
-                print("error no servidor")
+                self.alert?.getAlert(title: "Atenção", message: "Erro ao cadastrar, verique os dados e tente novamente")
             }else {
-                print("sucesso ao cadastrar")
+                self.alert?.getAlert(title: "Parabéns", message: "Conta Criada com Sucesso!", completion: {
+                    self.navigationController?.popViewController(animated: true)
+                })
             }
         })
     }

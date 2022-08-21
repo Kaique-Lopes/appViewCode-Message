@@ -211,6 +211,14 @@ class LoginScreen: UIView {
         }
     }
     
+    func getPasswordTF() -> String {
+        return self.passwordTextField.text ?? ""
+    }
+    
+    func getEmailTF() -> String {
+        return self.loginTextField.text ?? ""
+    }
+    
 }
 
 // MARK: - UITextFieldDelegate
