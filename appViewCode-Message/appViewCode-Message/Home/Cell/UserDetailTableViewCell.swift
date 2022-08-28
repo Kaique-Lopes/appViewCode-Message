@@ -44,6 +44,7 @@ class UserDetailTableViewCell: UITableViewCell {
         self.userImageView.image = UIImage(named: data.nameImage)
         self.nameLabel.text = data.name
     }
+    
     func configConstraints() {
         self.constraintsUserImageView()
         self.constraintNameLabel()
@@ -53,8 +54,8 @@ class UserDetailTableViewCell: UITableViewCell {
         self.userImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview()
-            make.width.equalTo(80)
-            make.height.equalTo(80)
+            make.width.equalTo(90)
+            make.height.equalTo(90)
         }
     }
     
